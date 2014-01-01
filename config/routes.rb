@@ -1,4 +1,10 @@
 IssueTracker::Application.routes.draw do
+  resources :pages do
+    collection do
+      get 'about-us' => 'pages#about_us', as: :about_us
+    end
+  end
+
   resources :issues, except: [:edit, :destroy] do
     member do
       get 'report'
